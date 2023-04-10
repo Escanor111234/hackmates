@@ -1,0 +1,253 @@
+<html>
+<head>
+    <title>Log in Form</title>
+    <style>
+        h1 {text-align: center; font: "Times New Roman";}
+
+        header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  margin: 0;
+}
+
+.logo h1 {
+  font-size: 2em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-links li a:hover {
+  background-color: #444;
+}
+    </style>
+
+<body>
+
+    <header>
+        <div class="logo">
+          <h1>Graphical Password Authentication</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+      </header>
+
+    <form>
+        <br><br>
+        &nbsp Username: <input type="text" id="one">
+        
+        <br><br>
+         &nbsp Password: <input type="password" id="two">
+        <br><br>
+        <p>TEST ID<br>
+          username:one <br>
+          password:two<br>
+          sequence:park>mountain>fruit
+        </p>
+        <br><br><br><b><center>&nbsp SELECT 3 IMAGES OUT OF 5 IN ORDER TO LOG IN</center></b>
+        <br><br><br>
+        
+        <ul id="checkboxes">
+            <li>
+                <img src="https://drive.google.com/uc?export=view&id=1pLOWYq2maxYryRekIIwYsVTMYhMXsRMB" alt="park" height="20%" width="20%">
+                
+                <input type="checkbox" id="checkbox_1"><br><br><br><br>
+            </li>
+            <li>
+                <img src="https://drive.google.com/uc?export=view&id=10dMZz7DRn4EGS5SRent2xNC9oMTxp6DN" alt="mountains" height="20%" width="20%">
+                <input type="checkbox" id="checkbox_2"><br><br><br><br>
+            </li>
+            <li>
+                <img src="https://drive.google.com/uc?export=view&id=1GhHV8drqvdnBnxwW5_cshAD_Ev60STUD" alt="fruit" height="20%" width="20%">
+                <input type="checkbox" id="checkbox_3"><br><br><br><br>
+            </li>
+            <li>
+                <img src="https://drive.google.com/uc?export=view&id=1Pl6gq3Oy73UIfbOB9SCV-ckrGILgchSs" alt="dice"height="20%" width="20%">
+                <input type="checkbox" id="checkbox_4"><br><br><br><br>
+            </li>
+            <li>
+                <img src="https://drive.google.com/uc?export=view&id=1F_sQC5LURxn8Aw0drYA2uQpSC17m7NS3" alt="college"height="20%" width="20%">
+                <input type="checkbox" id="checkbox_5"><br><br><br><br>
+            </li>
+          </ul>
+          <div style="display: flex; justify-content: center;">
+            <input type="button" id="submit_1" value="Submit 1st image" onclick="check1()">&nbsp&nbsp&nbsp
+            <input type="button" id="submit_2" value="Submit 2nd image" onclick="check2()">&nbsp&nbsp&nbsp
+            <input type="button" id="submit_3" value="Submit 3rd image" onclick="check3()">&nbsp&nbsp&nbsp
+          </div>
+            <br><br><br><center><input type="button" id="final_submit" value="Submit all" onclick="final()"></center>
+
+
+
+
+
+<script>
+    x=parseInt(document.getElementById("one").value)
+    y=parseInt(document.getElementById("two").value)
+    var count=0;
+
+    
+    function shuffleList(list) {
+  for (let i = list.children.length; i >= 0; i--) {
+    list.appendChild(list.children[Math.random() * i | 0]);
+  }
+}
+const checkboxList = document.getElementById('checkboxes');
+shuffleList(checkboxList);
+
+
+
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const total_selected = 3; // Set the maximum number of selections allowed
+
+let check_selected = 0;
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      check_selected++;
+      if (check_selected > total_selected) {
+        checkbox.checked = false;
+        check_selected--;
+      }
+    } else {
+      check_selected--;
+    }
+  });
+});
+
+/*function matrix(){
+    for(let k=0;k<=3;k++){
+        switch(count){
+            case 0: if(document.getElementById("checkbox_1").checked==true){
+                    b++
+            }
+                    
+                    break;
+            case 1: if(document.getElementById("checkbox_2").checked==true){
+                    b++
+            }
+                    else
+                    shuffleList(list);
+                    break;
+
+            case 2: if(document.getElementById("checkbox_3").checked==true){
+                     b++
+            }
+                    else
+                    shuffleList(list);
+                    break;        
+        
+                }
+        shuffleList(list);
+        count++
+    }
+    if(b==3){
+        alert("yes")
+    }
+    else{
+        alert("no")
+    }
+    }*/
+
+
+function check1(){
+    if(document.getElementById("checkbox_1").checked==true){
+        count++
+    }
+    else{
+        
+        
+    }
+    
+}
+
+function check2(){
+    if(document.getElementById("checkbox_2").checked==true){
+        count++
+    }
+    else{
+        
+    }
+}
+
+function check3(){
+    if(document.getElementById("checkbox_3").checked==true){
+        count++
+    }
+    else{
+        
+    }
+
+}
+
+function final(){
+
+    if(count==3){
+        alert("correct")
+    }
+    else{
+        alert("incorrect")
+    }
+alert(count)
+
+}
+
+/*function matrix(){
+if(document.getElementById("checkbox_1").checked==true){
+    if(document.getElementById("checkbox_2").checked==true){
+        if(document.getElementById("checkbox_3").checked==true){
+            alert("correct")
+        }
+        else{
+             alert("incorrect")
+        }
+    }
+    else{
+        alert("incorrect")
+    }
+}
+else{
+    alert("incorrect")
+}
+
+    
+}
+*/
+
+
+
+</script>
+
+
+
+
+    </form>
+
+</body>
+</head>
+</html>
